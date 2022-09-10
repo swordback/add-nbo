@@ -27,7 +27,7 @@ void main(int argc, char* argv[]) {
 
     if (argc != 3) {
         printf("error in parameter input, please check input");
-        return -1;
+        return;
     }
 
     num1_nbo = read_bin(argv[1]);
