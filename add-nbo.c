@@ -8,10 +8,13 @@ uint32_t read_bin(char* bin_file) {
     FILE* fstream;
     char num_data[5] = {0};
 
+    // read binary file
     fstream = fopen(bin_file, "r");
     if (fstream) {
         fread(num_data, sizeof(char), 4, fstream);
     }
+
+    // copy binary to uint32_t
     memcpy(&num, num_data, 4);
     return num;
 }
@@ -33,6 +36,7 @@ void main(int argc, char* argv[]) {
     num1_nbo = read_bin(argv[1]);
     num2_nbo = read_bin(argv[2]);
 
+    //network byte order to host byte order
     num1_hbo = ntohl(num1_nbo);
     num2_hbo = ntohl(num2_nbo);
 
